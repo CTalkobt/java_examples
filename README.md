@@ -14,3 +14,9 @@ directory for the beginning of such a table.  This is likely to move into it's o
 in the near future. 
 
 
+| **Expression**      | **Type** | **Result**  | **Description**            | **Examples** |
+| ----------          | -------  | ----------- | ----                       |--   |
+| x                   |          |           x | Identity Operation         |   |
+| Function.Identity() |          |           x | Identity Operation         |   |
+| C<x>                | Function |           x | FlatMap - Expands collection into stream | [FlatMap.java](./src/main/java/net/ctalkobt/example/java/lambda/Mapping/FlatMap/FlatMap.java)
+| x                   | Function |       fn(x) | Map - Maps values through fn | [MapExample.java](./src/main/java/net/ctalkobt/example/java/lambda/Mapping/FlatMap/FlatMap.java)
