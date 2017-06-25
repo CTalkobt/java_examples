@@ -19,4 +19,4 @@ in the near future.
 | x                   |          |           x | Identity Operation         |   |
 | Function.Identity() |          |           x | Identity Operation         |   |
 | C<x>                | Function |           x | FlatMap - Expands collection into stream | [FlatMap.java](./src/main/java/net/ctalkobt/example/java/lambda/Mapping/FlatMap/FlatMap.java)
-| x                   | Function |       fn(x) | Map - Maps values through fn | [MapExample.java](./src/main/java/net/ctalkobt/example/java/lambda/Mapping/FlatMap/FlatMap.java)
+| x                   | Function |       fn(x) | Map - Maps values through fn | [MapExample.java](./src/main/java/net/ctalkobt/example/java/lambda/Mapping/Map/MapExample.java)
