@@ -1,0 +1,4 @@
+type: other
+simple: forEach
+usage: C(x).forEach(Consumer)
+description: Invokes consumer for each value of C(x)

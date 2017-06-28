@@ -1,0 +1,6 @@
+type: other
+simple: groupingBy
+terminal: true
+usage: C(x) -> map( function(x), List(x given f(x)) )
+description: Converts current stream into a map of values. 
+

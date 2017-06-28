@@ -1,0 +1,5 @@
+type: other
+simple: removeIf
+terminal: false
+usage: C(x).removeIf(Predicate(x))
+description: Remove element(s) if predicate matches.
