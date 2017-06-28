@@ -14,9 +14,17 @@ directory for the beginning of such a table.  This is likely to move into it's o
 in the near future. 
 
 
-| **Expression**      | **Type** | **Result**  | **Description**            | **Examples** |
-| ----------          | -------  | ----------- | ----                       |--   |
-| x                   |          |           x | Identity Operation         |   |
-| Function.Identity() |          |           x | Identity Operation         |   |
-| C<x>                | Function |           x | FlatMap - Expands collection into stream | [FlatMap.java](./src/main/java/net/ctalkobt/example/java/lambda/Mapping/FlatMap/FlatMap.java)
-| x                   | Function |       fn(x) | Map - Maps values through fn | [MapExample.java](./src/main/java/net/ctalkobt/example/java/lambda/Mapping/Map/MapExample.java)
+| **Link** | **Usage** | **Description** |
+| ---- | ---- | ----------- |
+|
+| [removeIf](src/main/java/net/ctalkobt/example/java/lambda/Collections/RemoveIf/RemoveIfExample.java) | C(x).removeIf(Predicate(x)) |Remove element(s) if predicate matches. |
+|
+|
+| [forEach](src/main/java/net/ctalkobt/example/java/lambda/Collections/ForEach/ForEachExample.java) | C(x).forEach(Consumer) |Invokes consumer for each value of C(x) |
+|
+|
+| [groupingBy](src/main/java/net/ctalkobt/example/java/lambda/Collectors/groupingBy/GroupingByExample.java) | C(x) -> map( function(x), List(x given f(x)) ) |Converts current stream into a map of values.  |
+|
+|
+| [joining](src/main/java/net/ctalkobt/example/java/lambda/Collectors/joining/JoiningExample.java) | x1,x2,x3,x3... -> x1 joinChar x2 joinChar x3 joinChar ... |Join stream of arguments joining them by a string. |
+|
