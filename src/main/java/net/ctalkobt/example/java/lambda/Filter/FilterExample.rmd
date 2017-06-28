@@ -1,0 +1,4 @@
+type: lambda
+simple: filter
+usage: filter(x -> fn(x))
+description: Only includes x matching fn(x) in the resulting stream.

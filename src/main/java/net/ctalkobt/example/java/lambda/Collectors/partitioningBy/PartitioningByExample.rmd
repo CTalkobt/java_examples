@@ -1,0 +1,4 @@
+type: lambda
+simple: partitioningBy
+usage: C(x) -> Map<Boolean f(x), List<x>>
+description: Divides a list by a given fn(x)

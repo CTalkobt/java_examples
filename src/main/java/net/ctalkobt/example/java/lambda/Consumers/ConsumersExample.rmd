@@ -1,0 +1,4 @@
+type: lambda
+simple: Consumers
+usage: x -> Consumer.accept(x)
+description: Demonstrates calling and chaining of consumers.

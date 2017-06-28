@@ -1,0 +1,4 @@
+type: lambda
+simple: toMap
+usage: x -> [key(x), value(x)] :: Map
+description: Converts each x into item in map via key and value functions.

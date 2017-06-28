@@ -1,0 +1,4 @@
+type: lambda
+simple: reducingBy
+usage: C(x) -> each x : fn(prior, x)
+description: Reduces C(x) by invoking f(x) for each x and prior result.
