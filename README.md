@@ -16,15 +16,7 @@ in the near future.
 
 | **Link** | **Usage** | **Description** |
 | ---- | ---- | ----------- |
-|
 | [removeIf](src/main/java/net/ctalkobt/example/java/lambda/Collections/RemoveIf/RemoveIfExample.java) | C(x).removeIf(Predicate(x)) |Remove element(s) if predicate matches. |
-|
-|
 | [forEach](src/main/java/net/ctalkobt/example/java/lambda/Collections/ForEach/ForEachExample.java) | C(x).forEach(Consumer) |Invokes consumer for each value of C(x) |
-|
-|
 | [groupingBy](src/main/java/net/ctalkobt/example/java/lambda/Collectors/groupingBy/GroupingByExample.java) | C(x) -> map( function(x), List(x given f(x)) ) |Converts current stream into a map of values.  |
-|
-|
 | [joining](src/main/java/net/ctalkobt/example/java/lambda/Collectors/joining/JoiningExample.java) | x1,x2,x3,x3... -> x1 joinChar x2 joinChar x3 joinChar ... |Join stream of arguments joining them by a string. |
-|

@@ -9,8 +9,7 @@ for file in `find . -name "*.rmd" -print`; do
 	description=`cat $file | grep '^description: '| sed 's;^description: ;;'`
     usage=`cat $file | grep "^usage: " | sed "s;^usage: ;;"`
 
-	echo "|"
 	echo "| [${simple:-$baseName}](src/main/${url}) | ${usage} |${description} |"
-	echo "|"
 done
+
 
