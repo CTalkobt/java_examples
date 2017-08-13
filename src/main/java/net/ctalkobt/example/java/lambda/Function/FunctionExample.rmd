@@ -1,0 +1,4 @@
+type: lambda
+simple: function
+usage: fn.apply(x1)
+description: Function invocation w/ 1 or 2 arguments
