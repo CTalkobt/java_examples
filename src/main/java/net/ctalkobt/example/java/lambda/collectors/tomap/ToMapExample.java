@@ -22,8 +22,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import org.apache.log4j.Logger;
 
 public class ToMapExample {
+    private static final Logger log = Logger.getLogger(ToMapExample.class);
 
     /**
      * @param args the command line arguments
@@ -37,6 +39,6 @@ public class ToMapExample {
                 Function.identity(), 
                 key -> lastName.get(firstName.indexOf(key)) ) 
             );
-        mappedNames.forEach( (x,y) -> System.err.println(y + ", " + x));
+        mappedNames.forEach( (x,y) -> log.debug(y + ", " + x));
     }
 }

@@ -18,10 +18,14 @@
 
 package net.ctalkobt.example.java.general.generics;
 
+import org.apache.log4j.Logger;
+
 /**
  *
  */
 class GenericTest {
+    private static final Logger log = Logger.getLogger(GenericTest.class);
+
     public static void main(String[] args) {
         // Example: Diamond operator.
         // Note that use of generic type avoids chaving to create multiple classes.
@@ -32,8 +36,8 @@ class GenericTest {
 //        pInt.set("abc"); // this will not compile - Incompatible types.
 //        pStr.set(123); // Neither will this.
 //
-        System.err.println("pInt=" + pInt );
-        System.err.println("pStr=" + pStr );
+        log.debug("pInt=" + pInt );
+        log.debug("pStr=" + pStr );
     }
 
 }

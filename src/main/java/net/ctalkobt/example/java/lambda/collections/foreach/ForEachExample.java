@@ -19,11 +19,13 @@ package net.ctalkobt.example.java.lambda.collections.foreach;
 
 import java.util.Arrays;
 import java.util.List;
+import org.apache.log4j.Logger;
 
 /**
  *
  */
 public class ForEachExample {
+        private static final Logger log = Logger.getLogger(ForEachExample.class);
 
     /**
      * @param args the command line arguments
@@ -31,7 +33,7 @@ public class ForEachExample {
     public static void main(String[] args) {
         List<String> example = Arrays.asList("A", "B", "C", "D");
         
-        example.forEach(System.err::println);
+        example.forEach(log::debug);
     }
 
 }

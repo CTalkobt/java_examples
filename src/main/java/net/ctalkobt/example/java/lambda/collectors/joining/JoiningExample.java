@@ -20,8 +20,10 @@ package net.ctalkobt.example.java.lambda.collectors.joining;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import org.apache.log4j.Logger;
 
 public class JoiningExample {
+    private static final Logger log = Logger.getLogger(JoiningExample.class);
 
     /**
      * @param args the command line arguments
@@ -31,7 +33,7 @@ public class JoiningExample {
         
         String allNames = presidents.stream()
                 .collect(Collectors.joining(", "));
-        System.err.println("All presidents: "  + allNames);
+        log.debug("All presidents: "  + allNames);
     }
 
 }

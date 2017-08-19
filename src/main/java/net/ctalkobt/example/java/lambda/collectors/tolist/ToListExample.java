@@ -20,8 +20,10 @@ package net.ctalkobt.example.java.lambda.collectors.tolist;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import org.apache.log4j.Logger;
 
 public class ToListExample {
+    private static final Logger log = Logger.getLogger(ToListExample.class);
     
     /**
      * @param args the command line arguments
@@ -36,11 +38,11 @@ public class ToListExample {
 
         
         ints.forEach(
-                intVal -> System.err.println("Value: " + intVal));
+                intVal -> log.debug("Value: " + intVal));
         
-        System.err.println("Strs:" + strs);
-        System.err.println("Ints:" + ints);
-        System.err.println(ints.get(0).getClass());
+        log.debug("Strs:" + strs);
+        log.debug("Ints:" + ints);
+        log.debug(ints.get(0).getClass());
     }
 
 }

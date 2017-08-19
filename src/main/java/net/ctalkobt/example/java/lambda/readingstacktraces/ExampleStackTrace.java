@@ -21,8 +21,11 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.Function;
 import net.ctalkobt.example.java.lambda.readingstacktraces.util.AnnotatedStackTraceElement;
+import org.apache.log4j.Logger;
 
 public class ExampleStackTrace {
+    private static final Logger log = Logger.getLogger(ExampleStackTrace.class);
+
     // Key points:
     //   - Lambdas should be implemented with a seperation of principles. Simplicity is your friend.
     //
@@ -32,7 +35,6 @@ public class ExampleStackTrace {
     /**
      *
      */
-
 
     private static int exceptionCount = 0;
     
@@ -72,13 +74,13 @@ public class ExampleStackTrace {
         try {
             ints.stream()
                     .map(Integer::parseInt)
-                    .forEach(System.err::println);
+                    .forEach(log::debug);
         } catch (Exception ex) {
-            System.err.println("-----------------");
-            ex.printStackTrace(System.err);
-            System.err.println("------Cause------");
-            System.err.println("Cause:" + ex.getCause());
-            System.err.println("------ Annotated ----- ");
+            log.debug("-----------------");
+            Arrays.asList(ex.getStackTrace()).forEach(log::debug);
+            log.debug("------Cause------");
+            log.debug("Cause:" + ex.getCause());
+            log.debug("------ Annotated ----- ");
             
             Arrays.asList(ex.getStackTrace()).stream()
                     .map(makeAnnotatedSte)
@@ -86,7 +88,7 @@ public class ExampleStackTrace {
                     .filter(ast -> !ast.getSte().getClassName().startsWith("java.util"))  // ignore all stream exceptions.
                     .map(annotateThisClass)
                     .map(annotateFirst)
-                    .forEach(System.err::println);
+                    .forEach(log::debug);
         }
     }   
 

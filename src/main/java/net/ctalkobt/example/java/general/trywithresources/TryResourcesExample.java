@@ -20,11 +20,14 @@ package net.ctalkobt.example.java.general.trywithresources;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Arrays;
+import org.apache.log4j.Logger;
 
 /**
  *
  */
 public class TryResourcesExample {
+    private static final Logger log = Logger.getLogger(TryResourcesExample.class);
 
     /**
      * @param args the command line arguments
@@ -35,10 +38,10 @@ public class TryResourcesExample {
             String line;
 
             while ((line = br.readLine()) != null) {
-                System.err.println(">> " + line);
+                log.debug(">> " + line);
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            Arrays.asList(e.getStackTrace()).stream().forEach(log::debug);
         }
     }
 

@@ -20,8 +20,10 @@ package net.ctalkobt.example.java.lambda.function;
 
 import java.util.function.BiFunction;
 import java.util.function.Function;
+import org.apache.log4j.Logger;
 
 public class FunctionExample {
+    private static final Logger log = Logger.getLogger(FunctionExample.class);
 
     static Integer doCalculate(Integer val1, Integer val2, BiFunction<Integer,Integer,Integer> fn) {
         return fn.apply(val1, val2);
@@ -40,9 +42,9 @@ public class FunctionExample {
         BiFunction<Integer,Integer,Integer> mathPlus = (x,y) -> x+y;
         BiFunction<Integer,Integer,Integer> mathMinus = (x,y) -> x-y;
         
-        System.err.println( "100 + 50 = " + doCalculate(100, 50, mathPlus));
-        System.err.println( "100 - 50 = " + doCalculate(100, 50, mathMinus));
-        System.err.println( "50 squared = " + doCalculate(50, mathSquared));
+        log.debug( "100 + 50 = " + doCalculate(100, 50, mathPlus));
+        log.debug( "100 - 50 = " + doCalculate(100, 50, mathMinus));
+        log.debug( "50 squared = " + doCalculate(50, mathSquared));
     }
 
 }

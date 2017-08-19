@@ -18,11 +18,13 @@
 package net.ctalkobt.example.java.lambda.intstream;
 
 import java.util.stream.IntStream;
+import org.apache.log4j.Logger;
 
 /**
  *
  */
 public class IntStreamExample {
+    private static final Logger log = Logger.getLogger(IntStreamExample.class);
 
     /**
      * @param args the command line arguments
@@ -30,7 +32,7 @@ public class IntStreamExample {
     public static void main(String[] args) {
         IntStream.range(1, 10)
             .boxed()
-            .forEach(System.err::println);
+            .forEach(log::debug);
     }
 
 }

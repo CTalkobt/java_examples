@@ -21,8 +21,10 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Stream;
+import org.apache.log4j.Logger;
 
 public class FlatMap {
+    private static final Logger log = Logger.getLogger(FlatMap.class);
 
     /**
      * @param args the command line arguments
@@ -35,8 +37,7 @@ public class FlatMap {
         scientistsPoliticians
                 .flatMap(Collection::stream)                // Turn list into a stream of Strings.
                 .distinct()                                 // Remove duplicate Ben Franklin
-                .forEach(x -> System.err.println(x));
-                
+                .forEach(log::debug);                
     }
 
 }

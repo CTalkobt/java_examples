@@ -17,10 +17,13 @@
 **/
 package net.ctalkobt.example.java.general.stringswitch;
 
+import org.apache.log4j.Logger;
+
 /**
  *
  */
 public class StringSwitchExample {
+    private static final Logger log = Logger.getLogger(StringSwitchExample.class);
 
     /**
      * @param args the command line arguments
@@ -28,19 +31,19 @@ public class StringSwitchExample {
     public static void main(String[] args) {
         String color = "blue";
 
-        System.err.println("For : " + color);
+        log.debug("For : " + color);
         switch (color) {
             case "blue":
-                System.err.println("**BLUE**");
+                log.debug("**BLUE**");
                 break;
             case "red":
-                System.err.println("**RED**");
+                log.debug("**RED**");
                 break;
             case "green":
-                System.err.println("**GREEN**");
+                log.debug("**GREEN**");
                 break;
             default:
-                System.err.println("Unknown");
+                log.debug("Unknown");
                 break;
         }
 

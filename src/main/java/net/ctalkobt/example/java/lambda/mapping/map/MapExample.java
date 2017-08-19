@@ -19,8 +19,10 @@ package net.ctalkobt.example.java.lambda.mapping.map;
 
 import java.util.Arrays;
 import java.util.List;
+import org.apache.log4j.Logger;
 
 public class MapExample {
+    private static final Logger log = Logger.getLogger(MapExample.class);
 
     /**
      * @param args the command line arguments
@@ -29,7 +31,7 @@ public class MapExample {
         List<String> keys = Arrays.asList("001", "002", "003", "004" );
         keys.stream()
             .map(Integer::parseInt)
-            .forEach(System.err::println);
+            .forEach(log::debug);
     }
 
 }

@@ -21,11 +21,14 @@ package net.ctalkobt.example.java.general.multicatch;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.util.Arrays;
+import org.apache.log4j.Logger;
 
 /**
  *
  */
 public class MultiCatchExample {
+    private static final Logger log = Logger.getLogger(MultiCatchExample.class);
 
     /**
      * @param args the command line arguments
@@ -41,18 +44,17 @@ public class MultiCatchExample {
             Double d2 = Double.valueOf(strNum2);
             
             Double result = d1 / d2;
-            System.err.println( d1 + " / " + d2 + "=" + result);
+            log.debug( d1 + " / " + d2 + "=" + result);
             
             // Following can throw IOException
             // Force a null pointer exception
-            String filename = "MultiCatchExample";
-//            String filename = null;
+            String filename = "MultiCatchExample";   // null
             File f = File.createTempFile(filename, "example");
             Files.delete(f.toPath());
                      
         } catch (NullPointerException | IOException | NumberFormatException ex) {
-            System.err.println("Exception: " + ex); 
-            ex.printStackTrace();
+            log.debug("Exception: " + ex); 
+            Arrays.asList(ex.getStackTrace()).forEach(log::debug);
         }
     }
 

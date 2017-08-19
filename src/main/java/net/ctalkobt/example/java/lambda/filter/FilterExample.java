@@ -19,8 +19,11 @@ package net.ctalkobt.example.java.lambda.filter;
 
 import java.util.Arrays;
 import java.util.List;
+import org.apache.log4j.Logger;
 
 public class FilterExample {
+    private static final Logger log = Logger.getLogger(FilterExample.class);
+
 
     /**
      * @param args the command line arguments
@@ -30,7 +33,7 @@ public class FilterExample {
         
         cerealTypes.stream()
                 .filter(cereal -> cereal.contains(" "))
-                .forEach(System.err::println);
+                .forEach(log::debug);
     }
 
 }

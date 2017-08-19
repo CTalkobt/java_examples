@@ -23,12 +23,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ForkJoinPool;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import java.util.stream.LongStream;
+import org.apache.log4j.Logger;
 
 public class ParallelStreamForkJoinExample {
+    private static final Logger log = Logger.getLogger(ParallelStreamForkJoinExample.class);
 
     /**
      * @param args the command line arguments
@@ -54,7 +54,7 @@ public class ParallelStreamForkJoinExample {
                         Thread.sleep(20);
                     } catch (InterruptedException ex) {
                         Thread.currentThread().interrupt();
-                        Logger.getLogger(ParallelStreamForkJoinExample.class.getName()).log(Level.SEVERE, null, ex);
+                        Arrays.asList(ex.getStackTrace()).stream().forEach(log::debug);
                     }
                     result.put(count, x);
                     countHolder.set(0, count + 1);
@@ -65,11 +65,10 @@ public class ParallelStreamForkJoinExample {
             Thread.sleep(1000);
         }
         long end = System.currentTimeMillis();
-
         
-        System.err.println("ForkJoinPool:" + fjp);
-        System.err.println("After parallel count for " + maxLong + " = " + result.size());
-        System.err.println("Time: " + (end-start) / 1000.0);
+        log.debug("ForkJoinPool:" + fjp);
+        log.debug("After parallel count for " + maxLong + " = " + result.size());
+        log.debug("Time: " + (end-start) / 1000.0);
     }
 
 }

@@ -20,8 +20,10 @@ package net.ctalkobt.example.java.lambda.consumers;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
+import org.apache.log4j.Logger;
 
 public class ConsumersExample {
+    private static final Logger log = Logger.getLogger(ConsumersExample.class);
 
     /**
      * @param args the command line arguments
@@ -29,14 +31,14 @@ public class ConsumersExample {
     public static void main(String[] args) {
         List<Integer> strs = Arrays.asList(1, 2, 3, 4, 5);
         
-        Consumer<Integer> displayX = System.err::print;
-        Consumer<Integer> displayXSquared = x -> System.err.println(" " + x*x);
+        Consumer<Integer> displayX = log::debug;
+        Consumer<Integer> displayXSquared = x -> log.debug(" " + x*x);
         
-        System.err.println("Consumers.andThen");        
+        log.debug("Consumers.andThen");        
         strs.stream()
                 .forEach(displayX.andThen(displayXSquared));
         
-        System.err.println("Consumers.accept:");
+        log.debug("Consumers.accept:");
         strs.stream().forEach(displayXSquared::accept);
 //        strs.stream().forEach(displayXSquared);  // alternate form - accept is default.
     }

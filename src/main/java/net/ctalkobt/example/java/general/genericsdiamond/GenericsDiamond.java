@@ -22,24 +22,23 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.apache.log4j.Logger;
 
 /**
  *
  */
 public class GenericsDiamond {
+    private static final Logger log = Logger.getLogger(GenericsDiamond.class);
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         
-        // Long prior duplicated form.
-        List<Integer> int1 = new ArrayList<Integer>();
-        System.err.println(int1);                           // 
-        
         // New shorter format using the <> "diamond" operator to automaticaly 
         // use the inferred type.
         List<Integer> int2 = new ArrayList<>();
+        log.debug(int2);
         
         Map<String, List<Integer>> mapExample = new HashMap<>();
         mapExample.put("abc", int2);

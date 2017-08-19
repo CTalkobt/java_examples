@@ -21,24 +21,27 @@ package net.ctalkobt.example.java.general.datetime;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjusters;
+import org.apache.log4j.Logger;
 
 /**
  *
  */
 public class DateTimeExample {
+    private static final Logger log = Logger.getLogger(DateTimeExample.class);
+
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         LocalDateTime now = LocalDateTime.now();
 
-        System.err.println("Now = " + now);
-        System.err.println("Hour: " + now.getHour());
+        log.debug("Now = " + now);
+        log.debug("Hour: " + now.getHour());
         
         LocalDateTime lastDayOfMonth = now.with(TemporalAdjusters.lastDayOfMonth());
-        System.err.println("Last day of month: " + lastDayOfMonth);
+        log.debug("Last day of month: " + lastDayOfMonth);
         
-        System.err.println("Truncated to hour: " + now.truncatedTo(ChronoUnit.HOURS));
+        log.debug("Truncated to hour: " + now.truncatedTo(ChronoUnit.HOURS));
     }
 
 }

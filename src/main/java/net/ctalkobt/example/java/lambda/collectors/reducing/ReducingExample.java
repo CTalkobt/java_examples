@@ -20,8 +20,10 @@ package net.ctalkobt.example.java.lambda.collectors.reducing;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
+import org.apache.log4j.Logger;
 
 public class ReducingExample {
+    private static final Logger log = Logger.getLogger(ReducingExample.class);
     /**
      * @param args the command line arguments
      */
@@ -31,11 +33,11 @@ public class ReducingExample {
         // Reduction 
         intsToSum.stream()
             .collect(Collectors.reducing((x1, x2) -> x1 + x2))
-            .ifPresent(x -> System.err.println("Sum = " + x));
+            .ifPresent(x -> log.debug("Sum = " + x));
         
         // Reduction w/ default value.
         List<Integer> intsToSum2 = Arrays.asList();
-        System.err.println("Sum2 = " + intsToSum2.stream()
+        log.debug("Sum2 = " + intsToSum2.stream()
             .collect(Collectors.reducing(0, (x1,x2) -> x1+x2))
         );
 

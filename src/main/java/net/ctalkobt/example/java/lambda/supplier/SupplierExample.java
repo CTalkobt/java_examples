@@ -22,11 +22,13 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.function.Supplier;
+import org.apache.log4j.Logger;
 
 /**
  *
  */
 public class SupplierExample {
+    private static final Logger log = Logger.getLogger(SupplierExample.class);
 
     /**
      * @param args the command line arguments
@@ -38,7 +40,7 @@ public class SupplierExample {
         List<Integer> empty = new ArrayList<>();
         for (int i=1; i<=5; i++) {
             Integer result = empty.stream().findFirst().orElseGet(supplier);
-            System.err.println(">> " + result);
+            log.debug(">> " + result);
         }
         
     }

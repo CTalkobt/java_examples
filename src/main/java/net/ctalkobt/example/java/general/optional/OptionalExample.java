@@ -19,11 +19,13 @@
 package net.ctalkobt.example.java.general.optional;
 
 import java.util.Optional;
+import org.apache.log4j.Logger;
 
 /**
  *
  */
 public class OptionalExample {
+    private static final Logger log = Logger.getLogger(OptionalExample.class);
 
     /**
      * @param args the command line arguments
@@ -35,8 +37,8 @@ public class OptionalExample {
                 .map(Integer::parseInt)
                 .orElse(-1);
         
-        System.err.println("Output: " + value);
-        System.err.println("Type:" + value.getClass());
+        log.debug("Output: " + value);
+        log.debug("Type:" + value.getClass());
     }
 
     private static Optional myFunction(String parm) {

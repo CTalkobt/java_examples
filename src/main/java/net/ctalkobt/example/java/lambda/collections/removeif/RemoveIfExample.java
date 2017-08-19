@@ -20,11 +20,13 @@ package net.ctalkobt.example.java.lambda.collections.removeif;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import org.apache.log4j.Logger;
 
 /**
  *
  */
 public class RemoveIfExample {
+    private static final Logger log = Logger.getLogger(RemoveIfExample.class);
 
     /**
      * @param args the command line arguments
@@ -33,9 +35,9 @@ public class RemoveIfExample {
         List<String> names = new ArrayList<>();
         names.addAll(Arrays.asList("Joe", "Bob", "Anton", "Mary", "Sue", "Sally", "Alex"));
         
-        System.err.println("Pre removal:" + names);
+        log.debug("Pre removal:" + names);
         names.removeIf(x -> x.contains("x") || "Bob".equals(x));        
-        System.err.println("After removal: " + names);
+        log.debug("After removal: " + names);
     }
 
 }

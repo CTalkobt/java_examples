@@ -21,8 +21,10 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.apache.log4j.Logger;
 
 public class ParallelStreamExample {
+    private static final Logger log = Logger.getLogger(ParallelStreamExample.class);
 
     /**
      * @param args the command line arguments
@@ -38,7 +40,7 @@ public class ParallelStreamExample {
             countHolder.set(0, count+1);
         });
         
-        System.err.println("After parallel: " + result);
+        log.debug("After parallel: " + result);
     }
 
 }

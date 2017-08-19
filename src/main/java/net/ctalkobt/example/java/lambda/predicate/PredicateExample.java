@@ -23,8 +23,10 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import static net.ctalkobt.example.java.lambda.predicate.Person.GENDER_FEMALE;
 import static net.ctalkobt.example.java.lambda.predicate.Person.GENDER_MALE;
+import org.apache.log4j.Logger;
 
 public class PredicateExample {
+    private static final Logger log = Logger.getLogger(PredicateExample.class);
 
     /**
      * @param args the command line arguments
@@ -42,25 +44,25 @@ public class PredicateExample {
         Predicate<Person> predIsMale = peep -> peep.getGender().equals(GENDER_MALE);
         Predicate<Person> olderThan30 = peep -> peep.getAge() > 30;
         
-        System.err.println("Male : " + peeps.stream().filter(predIsMale).collect(Collectors.toList()));
-        System.err.println("Female : " + peeps.stream()
+        log.debug("Male : " + peeps.stream().filter(predIsMale).collect(Collectors.toList()));
+        log.debug("Female : " + peeps.stream()
                 .filter(p -> p.getGender().equals(GENDER_FEMALE))
                 .collect(Collectors.toList()));
-        System.err.println("Female - form 2 :" + peeps.stream()
+        log.debug("Female - form 2 :" + peeps.stream()
             .filter(predIsMale.negate())
             .collect(Collectors.toList()));
         
-        System.err.println("Males older than 30 : " + peeps.stream()
+        log.debug("Males older than 30 : " + peeps.stream()
             .filter(predIsMale.and(olderThan30))
             .collect(Collectors.toList()));
-        System.err.println("Males less than or equal to 30 : " + peeps.stream()
+        log.debug("Males less than or equal to 30 : " + peeps.stream()
             .filter(predIsMale.and(olderThan30.negate()))
             .collect(Collectors.toList()));
         
-        System.err.println("Feales older than 30 : " + peeps.stream()
+        log.debug("Feales older than 30 : " + peeps.stream()
             .filter(predIsMale.negate().and(olderThan30))
             .collect(Collectors.toList()));
-        System.err.println("Females less than or equal to 30 : " + peeps.stream()
+        log.debug("Females less than or equal to 30 : " + peeps.stream()
             .filter(predIsMale.negate().and(olderThan30.negate()))
             .collect(Collectors.toList()));
 

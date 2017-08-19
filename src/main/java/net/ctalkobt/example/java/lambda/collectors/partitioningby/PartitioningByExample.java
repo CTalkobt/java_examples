@@ -21,8 +21,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import org.apache.log4j.Logger;
 
 public class PartitioningByExample {
+    private static final Logger log = Logger.getLogger(PartitioningByExample.class);
 
     /**
      * @param args the command line arguments
@@ -37,7 +39,7 @@ public class PartitioningByExample {
                 );
         
         abbrevMap.forEach( (key,abbrevList) -> 
-                System.err.println( (key ? "Vowels" : "Non-Vowels") + " - " + abbrevList));
+                log.debug( (key ? "Vowels" : "Non-Vowels") + " - " + abbrevList));
         
         
     }
