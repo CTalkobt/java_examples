@@ -18,20 +18,21 @@
 package net.ctalkobt.example.java.lambda.predicate;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import static net.ctalkobt.example.java.lambda.predicate.Person.GENDER_FEMALE;
 import static net.ctalkobt.example.java.lambda.predicate.Person.GENDER_MALE;
 import org.apache.log4j.Logger;
+import org.junit.Assert;
+import org.junit.Test;
 
-public class PredicateExample {
-    private static final Logger log = Logger.getLogger(PredicateExample.class);
+public class PredicateExampleTest {
+    private static final Logger LOG = Logger.getLogger(PredicateExampleTest.class);
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
+    @Test
+    public void testPredicates() {
         List<Person> peeps = new ArrayList<>();
         
         // Note: Ages are abitrary
@@ -44,27 +45,36 @@ public class PredicateExample {
         Predicate<Person> predIsMale = peep -> peep.getGender().equals(GENDER_MALE);
         Predicate<Person> olderThan30 = peep -> peep.getAge() > 30;
         
-        log.debug("Male : " + peeps.stream().filter(predIsMale).collect(Collectors.toList()));
-        log.debug("Female : " + peeps.stream()
+        LOG.debug("Male : " + peeps.stream().filter(predIsMale).collect(Collectors.toList()));
+        LOG.debug("Female : " + peeps.stream()
                 .filter(p -> p.getGender().equals(GENDER_FEMALE))
                 .collect(Collectors.toList()));
-        log.debug("Female - form 2 :" + peeps.stream()
+        Assert.assertArrayEquals(
+                Arrays.asList(peeps.get(1), peeps.get(3)).toArray(),
+                peeps.stream()
+                    .filter(p -> p.getGender().equals(GENDER_FEMALE)).toArray() );
+        
+        LOG.debug("Female - form 2 :" + peeps.stream()
             .filter(predIsMale.negate())
             .collect(Collectors.toList()));
         
-        log.debug("Males older than 30 : " + peeps.stream()
+        LOG.debug("Males older than 30 : " + peeps.stream()
             .filter(predIsMale.and(olderThan30))
             .collect(Collectors.toList()));
-        log.debug("Males less than or equal to 30 : " + peeps.stream()
-            .filter(predIsMale.and(olderThan30.negate()))
-            .collect(Collectors.toList()));
+        // Males less than or equal to 30. 
+        Assert.assertArrayEquals(
+            Arrays.asList().toArray(),
+            peeps.stream()
+                .filter(predIsMale.and(olderThan30.negate())).toArray());
         
-        log.debug("Feales older than 30 : " + peeps.stream()
+        LOG.debug("Feales older than 30 : " + peeps.stream()
             .filter(predIsMale.negate().and(olderThan30))
             .collect(Collectors.toList()));
-        log.debug("Females less than or equal to 30 : " + peeps.stream()
-            .filter(predIsMale.negate().and(olderThan30.negate()))
-            .collect(Collectors.toList()));
+        // Females less than or equal to 30.
+        Assert.assertArrayEquals(
+            Arrays.asList(peeps.get(1)).toArray(),
+            peeps.stream()
+                .filter(predIsMale.negate().and(olderThan30.negate())).toArray());
 
     }
 }

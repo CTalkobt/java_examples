@@ -15,12 +15,12 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
 **/
-package net.ctalkobt.example.java.lambda.readingstacktraces;
+package net.ctalkobt.example.java.readingstacktraces;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Function;
-import net.ctalkobt.example.java.lambda.readingstacktraces.util.AnnotatedStackTraceElement;
+import net.ctalkobt.example.java.AnnotatedStackTraceElement;
 import org.apache.log4j.Logger;
 
 public class ExampleStackTrace {

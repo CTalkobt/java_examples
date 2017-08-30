@@ -15,32 +15,32 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package net.ctalkobt.example.java.lambda.parallelstream;
+package net.ctalkobt.example.java.lambda.supplier;
 
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
+import java.util.function.Supplier;
 import org.apache.log4j.Logger;
+import org.junit.Test;
+import org.junit.Assert;
 
-public class ParallelStreamExample {
-    private static final Logger log = Logger.getLogger(ParallelStreamExample.class);
+public class SupplierExampleTest {
+    private static final Logger LOG = Logger.getLogger(SupplierExampleTest.class);
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        List<Integer> intValues = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
-        Map<Integer, Integer> result = new HashMap<>(); 
-        List<Integer> countHolder = Arrays.asList(0);
+    @Test
+    public void testSupplier() {
+        Iterator<Integer> itInts = Arrays.asList(1, 2, 3, 4, 5).iterator();
+        Supplier<Integer> supplier = itInts::next;
         
-        intValues.parallelStream().forEach( (Integer x) -> {
-            Integer count = countHolder.get(0);
-            result.put(count, x);
-            countHolder.set(0, count+1);
-        });
+        List<Integer> empty = new ArrayList<>();
+        for (int i=1; i<=5; i++) {
+            Integer result = empty.stream().findFirst().orElseGet(supplier);
+            Assert.assertEquals((Integer) i, result); 
+            LOG.debug(">> " + result);
+        }
         
-        log.debug("After parallel: " + result);
     }
 
 }

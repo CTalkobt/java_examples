@@ -26,16 +26,16 @@ import java.util.concurrent.ForkJoinPool;
 import java.util.stream.Collectors;
 import java.util.stream.LongStream;
 import org.apache.log4j.Logger;
+import org.junit.Assert;
+import org.junit.Test;
 
-public class ParallelStreamForkJoinExample {
-    private static final Logger log = Logger.getLogger(ParallelStreamForkJoinExample.class);
+public class ParallelStreamForkJoinExampleTest {
+    private static final Logger LOG = Logger.getLogger(ParallelStreamForkJoinExampleTest.class);
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) throws InterruptedException, ExecutionException {
-        long maxLong = 1000;
-        int maxForks = 3;
+    @Test
+    public void parallelStreamForkJoinTest() throws InterruptedException, ExecutionException {
+        long maxLong = 500;
+        int maxForks = 5;
         
         Map<Long, Long> result = new HashMap<>(); 
         List<Long> countHolder = Arrays.asList(0l);
@@ -54,7 +54,7 @@ public class ParallelStreamForkJoinExample {
                         Thread.sleep(20);
                     } catch (InterruptedException ex) {
                         Thread.currentThread().interrupt();
-                        Arrays.asList(ex.getStackTrace()).stream().forEach(log::debug);
+                        Arrays.asList(ex.getStackTrace()).stream().forEach(LOG::debug);
                     }
                     result.put(count, x);
                     countHolder.set(0, count + 1);
@@ -62,13 +62,15 @@ public class ParallelStreamForkJoinExample {
         ).join();
         
         while(!fjp.isQuiescent()) {
-            Thread.sleep(1000);
+            Thread.sleep(100);
         }
         long end = System.currentTimeMillis();
         
-        log.debug("ForkJoinPool:" + fjp);
-        log.debug("After parallel count for " + maxLong + " = " + result.size());
-        log.debug("Time: " + (end-start) / 1000.0);
+        LOG.debug("ForkJoinPool:" + fjp);
+        LOG.debug("After parallel count for " + maxLong + " = " + result.size());
+        LOG.debug("Time: " + (end-start) / 1000.0);
+        
+        Assert.assertNotEquals(maxLong, result.size());
     }
 
 }
