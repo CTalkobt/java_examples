@@ -1,5 +1,4 @@
 #!/bin/bash
-cd ../main
 echo "| **Link** | **Usage** | **Description** |"
 echo "| ---- | ---- | ----------- |"
 for file in `find . -name "*.rmd" -print`; do
@@ -9,7 +8,7 @@ for file in `find . -name "*.rmd" -print`; do
 	description=`cat $file | grep '^description: '| sed 's;^description: ;;'`
     usage=`cat $file | grep "^usage: " | sed "s;^usage: ;;"`
 
-	echo "| [${simple:-$baseName}](src/main/${url}) | ${usage} |${description} |"
+	echo "| [${simple:-$baseName}](${url}) | ${usage} |${description} |"
 done
 
 
