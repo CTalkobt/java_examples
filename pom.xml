@@ -10,6 +10,7 @@
     <modules>
     	<module>java_core</module>
     	<module>easyMock</module>
+		<module>groovy</module>
     </modules>
 
 </project>
