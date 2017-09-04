@@ -46,8 +46,9 @@ public class FlatMapTest {
         uniqueSet.addAll(politicians);
         int numUnique = uniqueSet.size();
         
-        Assert.assertEquals(numUnique, uniqs.toArray().length);
-        LOG.debug("Number unique:" + uniqs.toArray().length);
+        Object[] uniqArray = uniqs.toArray();
+        Assert.assertEquals(numUnique, uniqArray.length);
+        LOG.debug("Number unique:" + uniqArray.length);
     }
 
 }
