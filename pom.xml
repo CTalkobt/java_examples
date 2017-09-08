@@ -11,6 +11,7 @@
     	<module>java_core</module>
     	<module>easyMock</module>
 		<module>groovy</module>
+		<module>jetty</module> 
     </modules>
 
 </project>
