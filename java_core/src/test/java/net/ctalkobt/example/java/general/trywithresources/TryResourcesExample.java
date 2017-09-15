@@ -18,11 +18,15 @@
 package net.ctalkobt.example.java.general.trywithresources;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
 import org.apache.log4j.Logger;
+import org.junit.After;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 /**
@@ -30,12 +34,27 @@ import org.junit.Test;
  */
 public class TryResourcesExample {
     private static final Logger LOG = Logger.getLogger(TryResourcesExample.class);
-
-    /* @@TODO: Remove dependency on already existing file. */
+    private File outputFile;
+    
+    @Before
+    public void createTempFile() throws IOException { 
+        outputFile = File.createTempFile("TryResourceExample", ".txt");
+        try (FileWriter outputWriter = new FileWriter(outputFile.getPath())) {
+            for (int i=0; i<10; i++) {
+                outputWriter.write("Line: " + i + "\n");
+            }
+        } 
+    }
+    
+    @After
+    public void deleteTempFile() {
+        outputFile.delete();
+    }
+    
     @Test
     @SuppressWarnings("CallToPrintStackTrace")
     public void tryWResourcesTest() {
-        try (BufferedReader br = new BufferedReader(new FileReader("/home/duck/tryResources.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(outputFile.getPath()))) {
             String line;
 
             while ((line = br.readLine()) != null) {

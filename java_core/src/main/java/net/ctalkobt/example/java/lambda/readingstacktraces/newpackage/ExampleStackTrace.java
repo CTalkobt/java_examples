@@ -15,12 +15,12 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
 **/
-package net.ctalkobt.example.java.readingstacktraces;
+package net.ctalkobt.example.java.lambda.readingstacktraces.newpackage;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Function;
-import net.ctalkobt.example.java.readingstacktraces.util.AnnotatedStackTraceElement;
+import net.ctalkobt.example.java.lambda.readingstacktraces.newpackage.util.AnnotatedStackTraceElement;
 import org.apache.log4j.Logger;
 
 public class ExampleStackTrace {
@@ -31,10 +31,6 @@ public class ExampleStackTrace {
     //
     //   - Catch exceptions that can be reasonably expected to be thrown and add a parsable message
     //     Add the original exception as the cause if possible. (eg: non RunTimeException). 
-
-    /**
-     *
-     */
 
     private static int exceptionCount = 0;
     

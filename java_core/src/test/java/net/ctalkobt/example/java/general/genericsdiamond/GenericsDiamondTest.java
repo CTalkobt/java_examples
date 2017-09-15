@@ -22,9 +22,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import junit.framework.Assert;
 import org.apache.log4j.Logger;
 import org.junit.Test;
+import org.junit.Assert;
 
 /**
  *
