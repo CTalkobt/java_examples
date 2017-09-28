@@ -34,6 +34,10 @@ public class ParallelStreamExampleTest {
         Map<Integer, Integer> result = new HashMap<>(); 
         List<Integer> countHolder = Arrays.asList(0);
         
+        for (int i=0; i < intValues.size(); i++) {
+            result.put(i, 0);
+        }
+        
         intValues.parallelStream().forEach( (Integer x) -> {
             Integer count = countHolder.get(0);
             result.put(count, x);
