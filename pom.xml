@@ -12,6 +12,7 @@
     	<module>easyMock</module>
 		<module>groovy</module>
 		<module>jetty</module> 
+		<module>apachePoi</module> 
     </modules>
 
 </project>
