@@ -51,7 +51,7 @@ public class ParallelStreamForkJoinExampleTest {
                 -> ints.parallelStream().forEach((Long x) -> {
                     Long count = countHolder.get(0);
                     try {
-                        Thread.sleep(20);
+                        Thread.sleep(20);  // NOSONAR
                     } catch (InterruptedException ex) {
                         Thread.currentThread().interrupt();
                         Arrays.asList(ex.getStackTrace()).stream().forEach(LOG::debug);
@@ -62,7 +62,7 @@ public class ParallelStreamForkJoinExampleTest {
         ).join();
         
         while(!fjp.isQuiescent()) {
-            Thread.sleep(100);
+            Thread.sleep(100);  // NOSONAR
         }
         long end = System.currentTimeMillis();
         

@@ -33,7 +33,7 @@ public class DateTimeExampleTest {
     @Test
     public void testDateTime_now() throws InterruptedException {
         LocalDateTime now = LocalDateTime.now();
-        Thread.sleep(1000L);
+        Thread.sleep(1000L);  // NOSONAR
         LocalDateTime nowPlus1 = LocalDateTime.now();
 
         long offset = now.until(nowPlus1, ChronoUnit.SECONDS);
