@@ -2,18 +2,18 @@
         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>net.ctalkobt.examples</groupId>
-    <artifactId>javaExamples</artifactId>
+    <artifactId>camelEip</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>Java Examples</name>
+    <name>Java Examples | Camel | EIP</name>
     
     <modules>
-    	<module>java_core</module>
-    	<module>easyMock</module>
-		<module>groovy</module>
-		<module>jetty</module> 
-		<module>apachePoi</module> 
-		<module>camel</module> 
+        <module>EIPExampleLib</module>
+        <module>contentBasedRouting</module>
+        <module>deadLetterQueue</module>        
+        <module>multipleConsumer</module>
+        <module>routingSlip</module>        
+        <module>aggregator</module>        
     </modules>
 
 </project>

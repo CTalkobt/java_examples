@@ -25,8 +25,8 @@ public class ExceptionTest {
     public void exceptionsSkipCodeTest() {
         try {
             functionThatThrowsException();
-            Assert.fail("Reached line after exception, someFunction didn't throw exception."); 
-        } catch(IllegalArgumentException ex) {
+            Assert.fail("Reached line after exception, someFunction didn't throw exception.");
+        } catch (IllegalArgumentException ex) {
             Assert.assertTrue("Encounterd exception correctly", true);
         }
     }

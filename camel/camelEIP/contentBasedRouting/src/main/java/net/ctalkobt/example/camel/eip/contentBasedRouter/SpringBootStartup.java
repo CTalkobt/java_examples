@@ -13,29 +13,17 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
-package net.ctalkobt.example.java.basic;
-
-import java.util.ArrayList;
-import java.util.List;
-import org.junit.Test;
-
-/**
  *
- */
-public class ListExample {
+**/
 
-    @Test
-    public void ListExampleTest() {
-        List<Integer> lyst = new ArrayList<>();
+package net.ctalkobt.example.camel.eip.contentBasedRouter;
 
-        lyst.add(1);
-        lyst.add(3);
-        lyst.add(5);
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-        lyst.forEach((num) -> {
-            System.out.println(num);
-        });
+@SpringBootApplication
+public class SpringBootStartup {
+    public static void main(String[] args) {
+        SpringApplication.run(SpringBootStartup.class, args);
     }
-
 }

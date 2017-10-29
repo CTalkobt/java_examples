@@ -13,29 +13,29 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
-package net.ctalkobt.example.java.basic;
+ *
+**/
+
+
+package net.ctalkobt.example.camel.eip.aggregator;
 
 import java.util.ArrayList;
-import java.util.List;
-import org.junit.Test;
+import org.apache.camel.builder.RouteBuilder;
+import org.apache.camel.util.toolbox.AggregationStrategies;
+import org.springframework.stereotype.Component;
 
-/**
- *
- */
-public class ListExample {
+@Component
+public class AggegatorRouter extends RouteBuilder {
 
-    @Test
-    public void ListExampleTest() {
-        List<Integer> lyst = new ArrayList<>();
-
-        lyst.add(1);
-        lyst.add(3);
-        lyst.add(5);
-
-        lyst.forEach((num) -> {
-            System.out.println(num);
-        });
+    @Override
+    public void configure() throws Exception {
+        from("vm://aggregatorExample")
+                .aggregate(simple("${body.type}"), 
+                        AggregationStrategies.flexible()
+                                .accumulateInCollection(ArrayList.class))
+                    .completionTimeout(200)
+                .log("${body[0].type} : ${body}")
+                ;
     }
 
 }

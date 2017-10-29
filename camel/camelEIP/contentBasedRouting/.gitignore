@@ -1,5 +1,5 @@
-target
-target/*
+target/
+!.mvn/wrapper/maven-wrapper.jar
 
 ### STS ###
 .apt_generated
@@ -16,15 +16,9 @@ target/*
 *.ipr
 
 ### NetBeans ###
-nbactions.xml
-nbproject/
 nbproject/private/
 build/
 nbbuild/
 dist/
 nbdist/
 .nb-gradle/
-nb-config*.*
-nbactions.xml
-
-/camel/camelEIP/multipleConsumer/target/

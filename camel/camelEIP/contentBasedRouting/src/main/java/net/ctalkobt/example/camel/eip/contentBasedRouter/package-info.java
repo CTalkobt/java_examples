@@ -13,29 +13,23 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
-package net.ctalkobt.example.java.basic;
-
-import java.util.ArrayList;
-import java.util.List;
-import org.junit.Test;
-
-/**
  *
- */
-public class ListExample {
+**/
 
-    @Test
-    public void ListExampleTest() {
-        List<Integer> lyst = new ArrayList<>();
+package net.ctalkobt.example.camel.eip.contentBasedRouter;
 
-        lyst.add(1);
-        lyst.add(3);
-        lyst.add(5);
+/*
+Content Based Router : Allows routing of messages to the correct destination 
+   based on the contents of the message exchanges.
 
-        lyst.forEach((num) -> {
-            System.out.println(num);
-        });
-    }
+In the example, example here shows the list of People and breaks them into
+the first matching category:
 
-}
+   Young Person   Age <= 10
+   Older Person   Age < 100
+   otherwise an Ancient Person 
+
+Age is extracted into a header field which is then used to perform the comparsion
+w/in a choice()/when() route.
+
+*/

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2017 Craig Taylor <ctalkobt@ctalkobt.net>
+ * Copyright (C) 2017 Pivotal Software, Inc.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,28 +14,14 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package net.ctalkobt.example.java.basic;
 
-import java.util.ArrayList;
-import java.util.List;
-import org.junit.Test;
+package net.ctalkobt.example.camel.eip.deadLetterChannel;
 
 /**
  *
  */
-public class ListExample {
+public class DLQException extends Exception {
 
-    @Test
-    public void ListExampleTest() {
-        List<Integer> lyst = new ArrayList<>();
-
-        lyst.add(1);
-        lyst.add(3);
-        lyst.add(5);
-
-        lyst.forEach((num) -> {
-            System.out.println(num);
-        });
-    }
+    private static final long serialVersionUID = 2479609706355056357L;
 
 }
