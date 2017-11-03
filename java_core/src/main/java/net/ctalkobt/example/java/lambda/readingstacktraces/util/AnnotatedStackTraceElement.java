@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
 **/
-package net.ctalkobt.example.java.lambda.readingstacktraces.newpackage.util;
+package net.ctalkobt.example.java.lambda.readingstacktraces.util;
 
 public class AnnotatedStackTraceElement {
 
