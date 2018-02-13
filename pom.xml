@@ -8,12 +8,13 @@
     <name>Java Examples</name>
     
     <modules>
-		<module>apachePoi</module> 
+        <module>apachePoi</module> 
         <module>camel</module> 
-    	<module>easyMock</module>
-		<module>groovy</module>
+        <module>easyMock</module>
+        <module>groovy</module>
         <module>java_core</module>
-		<module>jetty</module> 
+        <module>jetty</module>
+        <module>jmockit</module>
     </modules>
 
 </project>
