@@ -15,6 +15,7 @@
         <module>java_core</module>
         <module>jetty</module>
         <module>jmockit</module>
+		<module>junit</module>
     </modules>
 
 </project>
