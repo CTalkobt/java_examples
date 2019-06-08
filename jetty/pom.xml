@@ -22,7 +22,7 @@
         <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-server</artifactId>
-            <version>9.3.16.v20170120</version>
+            <version>9.4.7.v20170914</version>
             <type>jar</type>
         </dependency>
     </dependencies>
